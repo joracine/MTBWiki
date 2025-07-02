@@ -1,4 +1,4 @@
-# MTB Wiki - Revised Implementation Plan
+# MTB Wiki - Implementation Task List
 
 ## 📋 Overview
 
