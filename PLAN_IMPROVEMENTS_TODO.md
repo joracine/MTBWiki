@@ -3,8 +3,8 @@
 ## 🟢 High-Impact, Actionable Improvements
 
 ### 1. **Parallelize Early Phases**
-- [ ] Allow admin interface and GraphQL API to be developed in parallel after initial schema is defined
-- [ ] Enable iterative feedback between API and admin UI
+- [x] Allow admin interface and GraphQL API to be developed in parallel after initial schema is defined
+- [x] Enable iterative feedback between API and admin UI
 
 ### 2. **Testing Strategy**
 - [x] Add explicit unit/integration/e2e test steps to each phase
@@ -65,7 +65,7 @@
 ## 📋 **Summary Table**
 | Area                | Improvement/Task                                      | Status |
 |---------------------|-------------------------------------------------------|--------|
-| Parallel Dev        | Parallelize admin & API after schema                  | [ ]    |
+| Parallel Dev        | Parallelize admin & API after schema                  | [x]    |
 | Testing             | Add unit/integration/e2e/contract tests to all phases | [x]    |
 | Dev Experience      | One-command dev setup, local run docs                 | [~]    |
 | Secrets             | AWS Secrets Manager, doc local/prod handling          | [ ]    |
