@@ -22,6 +22,7 @@
 - ✅ **NEW**: Parallelized admin interface and API development after schema definition
 - ✅ **NEW**: Added iterative feedback checkpoints after each major phase
 - ✅ **NEW**: Explicit testing strategy with coverage goals and contract tests for GraphQL API
+- ✅ **NEW**: Improved dev experience with one-command local dev setup and CI/CD test automation
 
 #### **Key Decisions Made**
 1. **Database**: Aurora Serverless v2 (PostgreSQL) - perfect for complex discovery queries
@@ -36,6 +37,7 @@
 10. **NEW - Infrastructure as Code**: All infrastructure, CI/CD, and builds defined as code
 11. **NEW - Parallel Dev**: Admin interface and API developed in parallel after schema, with review checkpoints
 12. **NEW - Testing Strategy**: Explicit unit/integration/e2e/contract tests, coverage goals, and contract testing for GraphQL API
+13. **NEW - Dev Experience**: One-command local dev setup, local run/test docs, all tests run in CI/CD
 
 #### **Files Created/Updated**
 - `src/types/` - Complete TypeScript models
@@ -43,7 +45,7 @@
 - `src/examples/` - Sample data and regional examples
 - `EXECUTION_PLAN.md` - Comprehensive implementation plan (updated with GraphQL + docs)
 - `PROGRESS_LOG.md` - This file (updated with new decisions)
-- `README.md` - Project overview (updated with GraphQL architecture and testing workflow)
+- `README.md` - Project overview (updated with GraphQL architecture and testing workflow, local dev setup)
 - `docs-config.md` - **NEW**: Complete documentation and GraphQL integration strategy
 - `.gitignore` - **NEW**: Configured for proper documentation tracking
 - `src/types/normalized-models.ts` - **NEW**: Normalized data model with enumerations and foreign keys

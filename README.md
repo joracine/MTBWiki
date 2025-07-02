@@ -163,3 +163,14 @@ All architectural decisions are complete and the execution plan is detailed. The
 - **Contract tests**: 100% of GraphQL schema types and queries (using GraphQL Codegen or similar)
 - **E2E tests**: All main user flows (CRUD, discovery, navigation)
 - **CI/CD**: All pipelines enforce coverage thresholds and run contract tests on every PR 
+
+### **Local Development Setup**
+- Run all services with a single command:
+  ```bash
+  npm run dev:all
+  ```
+- To run/test individual services:
+  - API: `npm run dev --workspace=packages/api` and `npm run test --workspace=packages/api`
+  - Admin Web: `npm run dev --workspace=packages/admin-web` and `npm run test --workspace=packages/admin-web`
+  - Database: `npm run dev --workspace=packages/database` and `npm run test --workspace=packages/database`
+- All tests (unit, integration, e2e, contract) run automatically on push and deploy via CI/CD (GitHub Actions). 

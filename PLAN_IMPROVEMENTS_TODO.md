@@ -7,12 +7,12 @@
 - [ ] Enable iterative feedback between API and admin UI
 
 ### 2. **Testing Strategy**
-- [ ] Add explicit unit/integration/e2e test steps to each phase
+- [x] Add explicit unit/integration/e2e test steps to each phase
 - [ ] Define minimum test coverage goals for each package
 - [ ] Add contract tests for GraphQL API
 
 ### 3. **Dev Experience & Tooling**
-- [ ] Add a single command for local dev setup (`npm run dev:all`)
+- [~] Add a single command for local dev setup (`npm run dev:all`)
 - [ ] Document how to run/test each service locally
 - [ ] Consider Nx or Turborepo for monorepo management (optional)
 
@@ -66,8 +66,8 @@
 | Area                | Improvement/Task                                      | Status |
 |---------------------|-------------------------------------------------------|--------|
 | Parallel Dev        | Parallelize admin & API after schema                  | [ ]    |
-| Testing             | Add unit/integration/e2e/contract tests to all phases | [ ]    |
-| Dev Experience      | One-command dev setup, local run docs                 | [ ]    |
+| Testing             | Add unit/integration/e2e/contract tests to all phases | [x]    |
+| Dev Experience      | One-command dev setup, local run docs                 | [~]    |
 | Secrets             | AWS Secrets Manager, doc local/prod handling          | [ ]    |
 | Monitoring          | Add logging/monitoring from start                     | [ ]    |
 | Data Versioning     | Version/track enum seed data, schema version fields   | [ ]    |
@@ -81,7 +81,8 @@
 
 ---
 
-## 📝 Notes
+## 🟢 Notes
+- All new tests (unit, integration, e2e, contract) must run automatically on push and deploy via CI/CD (GitHub Actions).
 - This tracker is temporary and will be merged into the main execution plan after review.
 - All tasks are actionable and technical; "soft" tasks (e.g., stakeholder review) are omitted.
 - Solutions are kept simple and cost-effective (e.g., Aurora snapshots, S3 versioning, manual restore docs).

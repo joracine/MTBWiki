@@ -140,6 +140,8 @@ MTBWiki/
 - [ ] **Testing**: Set up Jest for unit tests in all packages
 - [ ] **Testing**: Add initial integration test for local stack (API + DB)
 - [ ] **Testing**: Add code coverage reporting (target: 70%+ for all packages)
+- [ ] **Dev Experience**: Add a single command for local dev setup (`npm run dev:all`)
+- [ ] **Dev Experience**: Document how to run and test each service locally in README
 
 **Deliverable**: `npm run dev` starts full local stack with GraphQL playground and tests passing
 
@@ -407,4 +409,7 @@ All architectural decisions are complete. Ready to start Phase 1 implementation 
 - **Integration tests**: 80%+ coverage for API and DB
 - **Contract tests**: 100% of GraphQL schema types and queries
 - **E2E tests**: All main user flows (CRUD, discovery, navigation)
-- **Fail CI if coverage drops below thresholds** 
+- **Fail CI if coverage drops below thresholds**
+
+## **CI/CD Note**
+- All tests (unit, integration, e2e, contract) must run automatically on push and deploy via GitHub Actions. 
