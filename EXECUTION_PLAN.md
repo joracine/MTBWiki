@@ -66,6 +66,24 @@ query DiscoverTrails($preferences: UserPreferences!) {
 4. Maintain session continuity
 ```
 
+### **Infrastructure as Code Strategy**
+```yaml
+# Everything defined as code for reproducibility:
+Infrastructure: CDK TypeScript stacks
+CI/CD Pipelines: GitHub Actions YAML workflows
+Database Schema: Prisma schema files
+Environment Config: TypeScript configuration files
+Build Processes: npm scripts and Docker configurations
+Documentation: Auto-generated from source code
+```
+
+**Benefits:**
+- ✅ **Version controlled**: All infrastructure changes tracked in git
+- ✅ **Reproducible**: Identical environments across Beta/Prod
+- ✅ **Auditable**: Complete history of infrastructure changes
+- ✅ **Rollback capable**: Easy to revert to previous versions
+- ✅ **Team collaboration**: Infrastructure changes via pull requests
+
 ## 📋 **Implementation Phases**
 
 ### **Phase 1: Local Development Setup** ⏱️ *Week 1*
@@ -79,8 +97,26 @@ MTBWiki/
 │   ├── database/            # Prisma schema & migrations  
 │   ├── admin-web/           # Next.js admin interface (GraphQL client)
 │   └── shared/              # TypeScript types (generated from GraphQL)
-├── infrastructure/          # CDK stacks
-├── .github/workflows/       # GitHub Actions (includes doc generation)
+├── infrastructure/          # CDK Infrastructure as Code
+│   ├── bin/                # CDK app entry points
+│   ├── lib/                # CDK stack definitions
+│   │   ├── core-stack.ts   # Aurora + VPC + Security Groups
+│   │   ├── api-stack.ts    # Lambda + API Gateway
+│   │   ├── frontend-stack.ts # S3 + CloudFront + Route53
+│   │   └── docs-stack.ts   # Documentation hosting
+│   ├── config/             # Environment configurations
+│   │   ├── beta.ts         # Beta environment config
+│   │   └── prod.ts         # Production environment config
+│   └── cdk.json            # CDK configuration
+├── .github/
+│   ├── workflows/          # GitHub Actions (Infrastructure as Code)
+│   │   ├── api-deploy.yml  # API deployment pipeline
+│   │   ├── admin-web-deploy.yml # Frontend deployment pipeline
+│   │   ├── docs-deploy.yml # Documentation pipeline
+│   │   ├── infrastructure-deploy.yml # CDK deployments
+│   │   ├── database-migrate.yml # Database migrations
+│   │   └── qa.yml          # Quality assurance pipeline
+│   └── hooks/              # Git hooks for context tracking
 ├── tests/                   # Integration tests
 ├── docs/                    # Architecture & context docs
 │   ├── generated/           # Auto-generated documentation
@@ -92,8 +128,7 @@ MTBWiki/
 ├── EXECUTION_PLAN.md        # This file (tracked in git)
 ├── PROGRESS_LOG.md          # Daily progress tracking (tracked in git)
 ├── docker-compose.yml       # Local development
-└── .github/
-    └── hooks/              # Git hooks for context tracking
+└── package.json             # Workspace configuration
 ```
 
 #### **1.2 Core Setup Tasks**
@@ -151,29 +186,60 @@ MTBWiki/
 - [ ] Environment variable management
 - [ ] Auto-deploy documentation to S3 on build
 
-#### **3.3 CDK Infrastructure**
-```typescript
-// Ultra-low-cost stack:
-- Aurora Serverless v2 (auto-pause)
-- Lambda functions (public subnets) - GraphQL endpoint
-- API Gateway (single /graphql endpoint)
-- S3 + CloudFront (admin interface)
-- S3 + CloudFront (documentation hosting)
-- No NAT Gateway, No VPC endpoints
-```
+#### **3.3 CDK Infrastructure (Infrastructure as Code)**
+- [ ] **Core Infrastructure Stack** (`/infrastructure/core-stack.ts`)
+  - Aurora Serverless v2 cluster with auto-pause
+  - VPC with public subnets only (no NAT Gateway)
+  - Security groups for Lambda and Aurora
+- [ ] **API Stack** (`/infrastructure/api-stack.ts`)
+  - Lambda function for GraphQL endpoint
+  - API Gateway with single /graphql route
+  - IAM roles and policies
+- [ ] **Frontend Stack** (`/infrastructure/frontend-stack.ts`)
+  - S3 bucket for admin interface
+  - CloudFront distribution with custom domain
+  - Route 53 hosted zone and records
+- [ ] **Documentation Stack** (`/infrastructure/docs-stack.ts`)
+  - S3 bucket for documentation hosting
+  - CloudFront distribution for docs.mtbwiki.com
+  - Automated invalidation on updates
+- [ ] **Environment Configuration** (`/infrastructure/config/`)
+  - Beta environment configuration
+  - Production environment configuration
+  - Shared resource definitions
 
 **Deliverable**: Working API in AWS with Aurora backend
 
 ### **Phase 4: CI/CD Pipeline** ⏱️ *Week 5*
 **Goal**: Automated deployments
 
-#### **4.1 GitHub Actions Workflows**
-- [ ] GraphQL API deployment (Lambda + Aurora migrations)
-- [ ] Admin web deployment (S3 + CloudFront)
-- [ ] Documentation generation and deployment (TypeDoc + GraphQL docs)
-- [ ] Context tracking (commit docs/, PROGRESS_LOG.md updates)
-- [ ] Environment management (Beta/Prod)
-- [ ] Database migration automation
+#### **4.1 GitHub Actions Workflows (Infrastructure as Code)**
+- [ ] **API Deployment Pipeline** (`/.github/workflows/api-deploy.yml`)
+  - GraphQL Lambda deployment with CDK
+  - Aurora Serverless v2 migrations (Prisma)
+  - Environment-specific deployments (Beta/Prod)
+- [ ] **Admin Web Pipeline** (`/.github/workflows/admin-web-deploy.yml`)
+  - Next.js build and optimization
+  - S3 deployment with CloudFront invalidation
+  - Environment-specific configurations
+- [ ] **Documentation Pipeline** (`/.github/workflows/docs-deploy.yml`)
+  - TypeDoc generation from TypeScript code
+  - GraphQL schema documentation generation
+  - Prisma schema documentation generation
+  - S3 deployment to docs.mtbwiki.com
+- [ ] **Infrastructure Pipeline** (`/.github/workflows/infrastructure-deploy.yml`)
+  - CDK stack deployments
+  - Environment provisioning and updates
+  - Resource drift detection
+- [ ] **Database Pipeline** (`/.github/workflows/database-migrate.yml`)
+  - Prisma migration validation
+  - Enumeration data seeding
+  - Database schema validation
+- [ ] **Quality Assurance Pipeline** (`/.github/workflows/qa.yml`)
+  - TypeScript compilation checks
+  - ESLint and Prettier validation
+  - GraphQL schema validation
+  - Integration tests
 
 #### **4.2 Environment Strategy**
 ```
