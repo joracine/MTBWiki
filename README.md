@@ -155,4 +155,11 @@ MTBWiki/
 
 All architectural decisions are complete and the execution plan is detailed. The project is ready for implementation - just follow the phases in `EXECUTION_PLAN.md` and track progress in `PROGRESS_LOG.md`.
 
-**Let's build something that helps mountain bikers discover amazing trails! 🚵‍♂️** 
+**Let's build something that helps mountain bikers discover amazing trails! 🚵‍♂️**
+
+### **Testing Workflow**
+- **Unit tests**: All packages must have 70%+ coverage (Jest)
+- **Integration tests**: API and DB must have 80%+ coverage
+- **Contract tests**: 100% of GraphQL schema types and queries (using GraphQL Codegen or similar)
+- **E2E tests**: All main user flows (CRUD, discovery, navigation)
+- **CI/CD**: All pipelines enforce coverage thresholds and run contract tests on every PR 

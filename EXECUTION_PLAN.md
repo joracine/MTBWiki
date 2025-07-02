@@ -137,8 +137,11 @@ MTBWiki/
 - [ ] Initialize Prisma with normalized schema and enumerations
 - [ ] Create shared TypeScript types package
 - [ ] **Define initial GraphQL schema and data model**
+- [ ] **Testing**: Set up Jest for unit tests in all packages
+- [ ] **Testing**: Add initial integration test for local stack (API + DB)
+- [ ] **Testing**: Add code coverage reporting (target: 70%+ for all packages)
 
-**Deliverable**: `npm run dev` starts full local stack with GraphQL playground
+**Deliverable**: `npm run dev` starts full local stack with GraphQL playground and tests passing
 
 ### **Phase 2: Parallel API & Admin Interface Development** ⏱️ *Weeks 2-3*
 **Goal**: Develop GraphQL API and Admin Interface in parallel, with iterative feedback
@@ -152,6 +155,9 @@ MTBWiki/
 - [ ] Implement GraphQL API (Apollo Server) for all core entities
 - [ ] Expose CRUD and discovery queries/mutations
 - [ ] Auto-generate GraphQL schema documentation
+- [ ] **Testing**: Add contract tests for GraphQL schema (using GraphQL Codegen or similar)
+- [ ] **Testing**: Add integration tests for API endpoints (target: 80%+ coverage)
+- [ ] **Testing**: Add e2e tests for discovery queries
 
 #### **2.2 Admin Interface Development**
 - [ ] Scaffold Next.js admin interface with Apollo Client
@@ -161,13 +167,17 @@ MTBWiki/
 - [ ] Add data validation and error handling
 - [ ] Add i18n support from the start (Next.js i18n routing)
 - [ ] Add language field to all user-facing content tables
+- [ ] **Testing**: Add unit tests for all components (target: 70%+ coverage)
+- [ ] **Testing**: Add integration tests for GraphQL queries/mutations
+- [ ] **Testing**: Add e2e tests for main user flows (CRUD, navigation)
 
 #### **2.3 Iterative Feedback Loop**
 - [ ] Weekly review checkpoint: Sync API and admin UI progress
+- [ ] Review test coverage and contract test results
 - [ ] Adjust GraphQL schema and admin UI based on feedback
 - [ ] Ensure type safety and codegen are up-to-date
 
-**Deliverable**: Working API and admin interface, both consuming the same schema and data model, with feedback-driven improvements
+**Deliverable**: Working API and admin interface, both consuming the same schema and data model, with feedback-driven improvements and passing tests
 
 ### **Phase 3: AWS Infrastructure** ⏱️ *Week 4*
 **Goal**: Production-ready AWS infrastructure
@@ -177,6 +187,7 @@ MTBWiki/
 - [ ] Configure auto-pause (5 minutes)
 - [ ] Setup Data API for Lambda access
 - [ ] Database migrations in AWS
+- [ ] **Testing**: Add integration tests for DB migrations and seed data
 
 #### **3.2 Lambda Functions**
 - [ ] Convert GraphQL API to Lambda function
@@ -184,6 +195,7 @@ MTBWiki/
 - [ ] Configure CORS for admin interface
 - [ ] Environment variable management
 - [ ] Auto-deploy documentation to S3 on build
+- [ ] **Testing**: Add integration tests for Lambda + Aurora Data API
 
 #### **3.3 CDK Infrastructure (Infrastructure as Code)**
 - [ ] **Core Infrastructure Stack** (`/infrastructure/core-stack.ts`)
@@ -206,6 +218,7 @@ MTBWiki/
   - Beta environment configuration
   - Production environment configuration
   - Shared resource definitions
+- [ ] **Testing**: Add infrastructure tests (CDK assertions, drift detection)
 
 **Deliverable**: Working API in AWS with Aurora backend
 
@@ -239,6 +252,8 @@ MTBWiki/
   - ESLint and Prettier validation
   - GraphQL schema validation
   - Integration tests
+- [ ] **Testing**: All pipelines run tests and enforce coverage thresholds (fail if below 70% for unit, 80% for integration)
+- [ ] **Testing**: Contract tests for GraphQL API run on every PR
 
 #### **4.2 Environment Strategy**
 ```
@@ -266,6 +281,7 @@ Production Environment:
 - [ ] Trails management with character tags
 - [ ] Discovery algorithm testing interface (GraphQL playground integration)
 - [ ] Auto-generated API documentation viewer
+- [ ] **Testing**: Add e2e tests for admin workflows (CRUD, navigation, i18n)
 
 #### **5.2 Advanced Features**
 - [ ] Bulk import/export
@@ -283,6 +299,7 @@ Production Environment:
 - [ ] Error tracking and alerting
 - [ ] Performance monitoring
 - [ ] Cost monitoring
+- [ ] **Testing**: Add smoke tests and health checks for production
 
 #### **6.2 Security & Performance**
 - [ ] API rate limiting
@@ -384,3 +401,10 @@ Total:                    $22.50-32.50/month
 
 ## 🚀 **Ready to Begin**
 All architectural decisions are complete. Ready to start Phase 1 implementation when you give the go-ahead! 
+
+## **Testing Coverage Goals**
+- **Unit tests**: 70%+ coverage for all packages
+- **Integration tests**: 80%+ coverage for API and DB
+- **Contract tests**: 100% of GraphQL schema types and queries
+- **E2E tests**: All main user flows (CRUD, discovery, navigation)
+- **Fail CI if coverage drops below thresholds** 

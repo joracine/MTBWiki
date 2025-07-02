@@ -21,6 +21,7 @@
 - ✅ **NEW**: Normalized data model with proper enumerations and foreign keys
 - ✅ **NEW**: Parallelized admin interface and API development after schema definition
 - ✅ **NEW**: Added iterative feedback checkpoints after each major phase
+- ✅ **NEW**: Explicit testing strategy with coverage goals and contract tests for GraphQL API
 
 #### **Key Decisions Made**
 1. **Database**: Aurora Serverless v2 (PostgreSQL) - perfect for complex discovery queries
@@ -34,6 +35,7 @@
 9. **NEW - Data Model**: Normalized with enumerations as tables with foreign keys (not free text)
 10. **NEW - Infrastructure as Code**: All infrastructure, CI/CD, and builds defined as code
 11. **NEW - Parallel Dev**: Admin interface and API developed in parallel after schema, with review checkpoints
+12. **NEW - Testing Strategy**: Explicit unit/integration/e2e/contract tests, coverage goals, and contract testing for GraphQL API
 
 #### **Files Created/Updated**
 - `src/types/` - Complete TypeScript models
@@ -41,7 +43,7 @@
 - `src/examples/` - Sample data and regional examples
 - `EXECUTION_PLAN.md` - Comprehensive implementation plan (updated with GraphQL + docs)
 - `PROGRESS_LOG.md` - This file (updated with new decisions)
-- `README.md` - Project overview (updated with GraphQL architecture)
+- `README.md` - Project overview (updated with GraphQL architecture and testing workflow)
 - `docs-config.md` - **NEW**: Complete documentation and GraphQL integration strategy
 - `.gitignore` - **NEW**: Configured for proper documentation tracking
 - `src/types/normalized-models.ts` - **NEW**: Normalized data model with enumerations and foreign keys
