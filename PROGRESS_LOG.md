@@ -23,6 +23,8 @@
 - ✅ **NEW**: Added iterative feedback checkpoints after each major phase
 - ✅ **NEW**: Explicit testing strategy with coverage goals and contract tests for GraphQL API
 - ✅ **NEW**: Improved dev experience with one-command local dev setup and CI/CD test automation
+- ✅ **NEW**: Implemented secure secrets management using AWS Secrets Manager for database credentials and environment variables
+- ✅ **NEW**: Added comprehensive monitoring and observability with CloudWatch for logging/metrics and Sentry for error tracking
 
 #### **Key Decisions Made**
 1. **Database**: Aurora Serverless v2 (PostgreSQL) - perfect for complex discovery queries
@@ -38,14 +40,16 @@
 11. **NEW - Parallel Dev**: Admin interface and API developed in parallel after schema, with review checkpoints
 12. **NEW - Testing Strategy**: Explicit unit/integration/e2e/contract tests, coverage goals, and contract testing for GraphQL API
 13. **NEW - Dev Experience**: One-command local dev setup, local run/test docs, all tests run in CI/CD
+14. **NEW - Secrets Management**: AWS Secrets Manager setup for secure credential storage and injection
+15. **NEW - Monitoring & Observability**: Basic logging, metrics, and error tracking (CloudWatch, Sentry) from the start
 
 #### **Files Created/Updated**
 - `src/types/` - Complete TypeScript models
 - `src/docs/` - Architecture documentation
 - `src/examples/` - Sample data and regional examples
-- `EXECUTION_PLAN.md` - Comprehensive implementation plan (updated with GraphQL + docs)
+- `EXECUTION_PLAN.md` - Comprehensive implementation plan (updated with GraphQL + docs, secrets management details, and monitoring/observability details)
 - `PROGRESS_LOG.md` - This file (updated with new decisions)
-- `README.md` - Project overview (updated with GraphQL architecture and testing workflow, local dev setup)
+- `README.md` - Project overview (updated with GraphQL architecture and testing workflow, local dev setup, secrets management, and monitoring/observability)
 - `docs-config.md` - **NEW**: Complete documentation and GraphQL integration strategy
 - `.gitignore` - **NEW**: Configured for proper documentation tracking
 - `src/types/normalized-models.ts` - **NEW**: Normalized data model with enumerations and foreign keys

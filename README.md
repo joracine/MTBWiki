@@ -19,6 +19,8 @@ Different regions have vastly different difficulty standards. A "blue" trail in 
 - **Documentation**: Auto-generated from source code and schema
 - **CI/CD**: GitHub Actions with integrated documentation pipeline
 - **Local Dev**: Docker Compose + Prisma + GraphQL
+- **Secrets Management**: AWS Secrets Manager for secure credential storage
+- **Monitoring & Observability**: CloudWatch for logging and metrics, Sentry for real-time error tracking and alerts
 
 ## 🚀 **Getting Started**
 
@@ -120,6 +122,18 @@ MTBWiki/
 - Emphasize local knowledge and regional context
 - Curated routes for specific experiences
 - Regional difficulty calibration as key differentiator
+
+### **Security Features**
+- **Secrets Management**: Database credentials and other sensitive information stored in AWS Secrets Manager and securely injected into Lambda environment variables at runtime.
+- **IAM Roles**: Least privilege IAM roles for all AWS resources.
+- **CORS Configuration**: Proper CORS setup for API Gateway.
+- **Input Validation**: Data validation on API inputs to prevent injection attacks.
+
+### **Monitoring & Observability Features**
+- **Comprehensive Logging**: Centralized logging with CloudWatch Logs for all services.
+- **Real-time Metrics**: CloudWatch metrics and dashboards for API performance, Lambda invocations, and database health.
+- **Error Tracking**: Sentry integration for real-time error reporting and visibility across all environments (dev, beta, prod).
+- **Automated Alerts**: CloudWatch alarms for critical issues (e.g., high error rates, low database connections, deployment failures).
 
 ## 📊 **Cost Breakdown**
 

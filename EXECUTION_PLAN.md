@@ -142,6 +142,8 @@ MTBWiki/
 - [ ] **Testing**: Add code coverage reporting (target: 70%+ for all packages)
 - [ ] **Dev Experience**: Add a single command for local dev setup (`npm run dev:all`)
 - [ ] **Dev Experience**: Document how to run and test each service locally in README
+- [ ] **Monitoring**: Integrate basic logging (e.g., Winston/Pino) in API and admin-web
+- [ ] **Monitoring**: Set up local error tracking (e.g., Sentry SDK for local errors)
 
 **Deliverable**: `npm run dev` starts full local stack with GraphQL playground and tests passing
 
@@ -190,6 +192,9 @@ MTBWiki/
 - [ ] Setup Data API for Lambda access
 - [ ] Database migrations in AWS
 - [ ] **Testing**: Add integration tests for DB migrations and seed data
+- [ ] Configure AWS Secrets Manager for database credentials
+- [ ] Define Secret resource for Aurora credentials
+- [ ] Grant Lambda read access to secrets
 
 #### **3.2 Lambda Functions**
 - [ ] Convert GraphQL API to Lambda function
@@ -198,21 +203,28 @@ MTBWiki/
 - [ ] Environment variable management
 - [ ] Auto-deploy documentation to S3 on build
 - [ ] **Testing**: Add integration tests for Lambda + Aurora Data API
+- [ ] Implement secure retrieval of secrets in Lambda (e.g., via environment variables from Secrets Manager)
+- [ ] **Monitoring**: Configure CloudWatch Logs for Lambda functions
+- [ ] **Monitoring**: Integrate Sentry DSN for error tracking in Lambda
 
 #### **3.3 CDK Infrastructure (Infrastructure as Code)**
-- [ ] **Core Infrastructure Stack** (`/infrastructure/core-stack.ts`)
+- [ ] **Core Infrastructure Stack** (`/infrastructure/lib/core-stack.ts`)
   - Aurora Serverless v2 cluster with auto-pause
   - VPC with public subnets only (no NAT Gateway)
   - Security groups for Lambda and Aurora
-- [ ] **API Stack** (`/infrastructure/api-stack.ts`)
+  - [ ] Configure AWS Secrets Manager for database credentials
+  - [ ] Define Secret resource for Aurora credentials
+  - [ ] Grant Lambda read access to secrets
+- [ ] **API Stack** (`/infrastructure/lib/api-stack.ts`)
   - Lambda function for GraphQL endpoint
   - API Gateway with single /graphql route
   - IAM roles and policies
-- [ ] **Frontend Stack** (`/infrastructure/frontend-stack.ts`)
+  - [ ] Implement secure retrieval of secrets in Lambda (e.g., via environment variables from Secrets Manager)
+- [ ] **Frontend Stack** (`/infrastructure/lib/frontend-stack.ts`)
   - S3 bucket for admin interface
   - CloudFront distribution with custom domain
   - Route 53 hosted zone and records
-- [ ] **Documentation Stack** (`/infrastructure/docs-stack.ts`)
+- [ ] **Documentation Stack** (`/infrastructure/lib/docs-stack.ts`)
   - S3 bucket for documentation hosting
   - CloudFront distribution for docs.mtbwiki.com
   - Automated invalidation on updates
@@ -220,35 +232,39 @@ MTBWiki/
   - Beta environment configuration
   - Production environment configuration
   - Shared resource definitions
-- [ ] **Testing**: Add infrastructure tests (CDK assertions, drift detection)
+- [ ] **Monitoring Stack**: Define CloudWatch dashboards and alarms (basic metrics)
 
-**Deliverable**: Working API in AWS with Aurora backend
+**Deliverable**: Working API in AWS with Aurora backend and secure secret management
 
 ### **Phase 4: CI/CD Pipeline** ⏱️ *Week 5*
 **Goal**: Automated deployments
 
 #### **4.1 GitHub Actions Workflows (Infrastructure as Code)**
+- [ ] **Infrastructure Deployment Pipeline** (`/.github/workflows/infrastructure-deploy.yml`)
+  - CDK stack deployments
+  - Environment provisioning and updates
+  - Resource drift detection
+  - Ensure Secrets Manager setup is part of this deployment
 - [ ] **API Deployment Pipeline** (`/.github/workflows/api-deploy.yml`)
   - GraphQL Lambda deployment with CDK
   - Aurora Serverless v2 migrations (Prisma)
   - Environment-specific deployments (Beta/Prod)
+  - Inject secrets securely into Lambda environment variables
+- [ ] **Database Migration Pipeline** (`/.github/workflows/database-migrate.yml`)
+  - Prisma migration validation
+  - Enumeration data seeding
+  - Database schema validation
+  - Use Secrets Manager for DATABASE_URL for migrations/seeding
 - [ ] **Admin Web Pipeline** (`/.github/workflows/admin-web-deploy.yml`)
   - Next.js build and optimization
   - S3 deployment with CloudFront invalidation
   - Environment-specific configurations
+  - Ensure client-side API endpoints are correctly configured via build-time env vars (no secrets exposed)
 - [ ] **Documentation Pipeline** (`/.github/workflows/docs-deploy.yml`)
   - TypeDoc generation from TypeScript code
   - GraphQL schema documentation generation
   - Prisma schema documentation generation
   - S3 deployment to docs.mtbwiki.com
-- [ ] **Infrastructure Pipeline** (`/.github/workflows/infrastructure-deploy.yml`)
-  - CDK stack deployments
-  - Environment provisioning and updates
-  - Resource drift detection
-- [ ] **Database Pipeline** (`/.github/workflows/database-migrate.yml`)
-  - Prisma migration validation
-  - Enumeration data seeding
-  - Database schema validation
 - [ ] **Quality Assurance Pipeline** (`/.github/workflows/qa.yml`)
   - TypeScript compilation checks
   - ESLint and Prettier validation
@@ -256,6 +272,8 @@ MTBWiki/
   - Integration tests
 - [ ] **Testing**: All pipelines run tests and enforce coverage thresholds (fail if below 70% for unit, 80% for integration)
 - [ ] **Testing**: Contract tests for GraphQL API run on every PR
+- [ ] **Monitoring**: Ensure Sentry DSN is securely injected into environments
+- [ ] **Monitoring**: Configure CloudWatch alarms for deployment failures
 
 #### **4.2 Environment Strategy**
 ```
@@ -297,11 +315,10 @@ Production Environment:
 **Goal**: Launch-ready system
 
 #### **6.1 Monitoring & Observability**
-- [ ] CloudWatch dashboards
-- [ ] Error tracking and alerting
-- [ ] Performance monitoring
-- [ ] Cost monitoring
-- [ ] **Testing**: Add smoke tests and health checks for production
+- [ ] **Monitoring**: Implement comprehensive CloudWatch dashboards for all services
+- [ ] **Monitoring**: Set up critical alarms (e.g., high error rates, low database connections)
+- [ ] **Monitoring**: Integrate Sentry for full error visibility across environments
+- [ ] **Logging**: Centralized log management strategy (CloudWatch Logs insights)
 
 #### **6.2 Security & Performance**
 - [ ] API rate limiting

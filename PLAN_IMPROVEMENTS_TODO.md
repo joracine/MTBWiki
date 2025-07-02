@@ -20,8 +20,8 @@
 - [x] Document local/dev/prod secrets handling
 
 ### 5. **Monitoring & Observability**
-- [ ] Add basic logging/monitoring hooks (CloudWatch, Sentry) from the start
-- [ ] Ensure error tracking is available in dev and beta
+- [x] Add basic logging/monitoring hooks (CloudWatch, Sentry) from the start
+- [x] Ensure error tracking is available in dev and beta
 
 ### 6. **Data Migration & Versioning**
 - [ ] Add process for versioning and updating enumeration seed data
@@ -68,7 +68,7 @@
 | Testing             | Add unit/integration/e2e/contract tests to all phases | [x]    |
 | Dev Experience      | One-command dev setup, local run docs                 | [x]    |
 | Secrets             | AWS Secrets Manager, doc local/prod handling          | [x]    |
-| Monitoring          | Add logging/monitoring from start                     | [ ]    |
+| Monitoring          | Add logging/monitoring from start                     | [x]    |
 | Data Versioning     | Version/track enum seed data, schema version fields   | [ ]    |
 | Onboarding          | Getting Started + content addition docs               | [ ]    |
 | Review Checkpoints  | Add review after each phase, with checklist           | [ ]    |
