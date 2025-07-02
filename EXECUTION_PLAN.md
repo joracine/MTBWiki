@@ -132,18 +132,18 @@ MTBWiki/
 ```
 
 #### **1.2 Core Setup Tasks**
-- [ ] Create monorepo structure with workspaces
-- [ ] Setup Docker Compose (PostgreSQL + Redis)
-- [ ] Initialize Prisma with normalized schema and enumerations
-- [ ] Create shared TypeScript types package
-- [ ] **Define initial GraphQL schema and data model**
-- [ ] **Testing**: Set up Jest for unit tests in all packages
-- [ ] **Testing**: Add initial integration test for local stack (API + DB)
-- [ ] **Testing**: Add code coverage reporting (target: 70%+ for all packages)
-- [ ] **Dev Experience**: Add a single command for local dev setup (`npm run dev:all`)
-- [ ] **Dev Experience**: Document how to run and test each service locally in README
-- [ ] **Monitoring**: Integrate basic logging (e.g., Winston/Pino) in API and admin-web
-- [ ] **Monitoring**: Set up local error tracking (e.g., Sentry SDK for local errors)
+- [ ] [Monorepo] Create monorepo structure with workspaces
+- [ ] [Local Env] Setup Docker Compose (PostgreSQL + Redis)
+- [ ] [DB Schema] Initialize Prisma with normalized schema and enumerations
+- [ ] [Shared] Create shared TypeScript types package
+- [ ] [API] **Define initial GraphQL schema and data model**
+- [ ] [Testing] Set up Jest for unit tests in all packages
+- [ ] [Testing] Add initial integration test for local stack (API + DB)
+- [ ] [Testing] Add code coverage reporting (target: 70%+ for all packages)
+- [ ] [Dev Experience] Add a single command for local dev setup (`npm run dev:all`)
+- [ ] [Dev Experience] Document how to run and test each service locally in README
+- [ ] [Monitoring] Integrate basic logging (e.g., Winston/Pino) in API and admin-web
+- [ ] [Monitoring] Set up local error tracking (e.g., Sentry SDK for local errors)
 
 **Deliverable**: `npm run dev` starts full local stack with GraphQL playground and tests passing
 
@@ -151,41 +151,41 @@ MTBWiki/
 **Goal**: Develop GraphQL API and Admin Interface in parallel, with iterative feedback
 
 #### **2.1 GraphQL API Development**
-- [ ] Implement normalized Prisma schema with enumeration tables
-- [ ] Create database migrations for all tables and foreign keys
-- [ ] Seed enumeration tables (countries, regions, difficulty ratings, character tags, etc.)
-- [ ] Add sample data for 3-5 trail systems using normalized model
-- [ ] Implement regional difficulty calibration with proper foreign keys
-- [ ] Implement GraphQL API (Apollo Server) for all core entities
-- [ ] Expose CRUD and discovery queries/mutations
-- [ ] Auto-generate GraphQL schema documentation
-- [ ] **Testing**: Add contract tests for GraphQL schema (using GraphQL Codegen or similar)
-- [ ] **Testing**: Add integration tests for API endpoints (target: 80%+ coverage)
-- [ ] **Testing**: Add e2e tests for discovery queries
-- [ ] **Internationalization**: Add `language_code` field (e.g., `en-US`, `fr-CA`) to all user-facing content tables (System, Route, Trail, Guide)
-- [ ] **Internationalization**: Ensure GraphQL queries can filter content by `language_code`
+- [ ] [DB Schema] Implement normalized Prisma schema with enumeration tables
+- [ ] [DB Migrations] Create database migrations for all tables and foreign keys
+- [ ] [Data Seed] Seed enumeration tables (countries, regions, difficulty ratings, character tags, etc.)
+- [ ] [Data Seed] Add sample data for 3-5 trail systems using normalized model
+- [ ] [API Logic] Implement regional difficulty calibration with proper foreign keys
+- [ ] [API Logic] Implement GraphQL API (Apollo Server) for all core entities
+- [ ] [API] Expose CRUD and discovery queries/mutations
+- [ ] [Docs] Auto-generate GraphQL schema documentation
+- [ ] [Testing] Add contract tests for GraphQL schema (using GraphQL Codegen or similar)
+- [ ] [Testing] Add integration tests for API endpoints (target: 80%+ coverage)
+- [ ] [Testing] Add e2e tests for discovery queries
+- [ ] [i18n] Add `language_code` field (e.g., `en-US`, `fr-CA`) to all user-facing content tables (System, Route, Trail, Guide)
+- [ ] [i18n] Ensure GraphQL queries can filter content by `language_code`
 
 #### **2.2 Admin Interface Development**
-- [ ] Scaffold Next.js admin interface with Apollo Client
-- [ ] Implement environment switcher (Beta/Prod)
-- [ ] Build CRUD interfaces for all data models (using GraphQL API)
-- [ ] Implement navigation with hyperlinks between records
-- [ ] Add data validation and error handling
-- [ ] Add i18n support from the start (Next.js i18n routing)
-- [ ] Add language field to all user-facing content tables
-- [ ] **Testing**: Add unit tests for all components (target: 70%+ coverage)
-- [ ] **Testing**: Add integration tests for GraphQL queries/mutations
-- [ ] **Testing**: Add e2e tests for main user flows (CRUD, navigation)
-- [ ] **Internationalization**: Implement Next.js i18n routing and configuration
-- [ ] **Internationalization**: Add language switcher to admin UI
-- [ ] **Internationalization**: Ensure CRUD operations handle `language_code` for content entries
+- [ ] [Frontend] Scaffold Next.js admin interface with Apollo Client
+- [ ] [Frontend] Implement environment switcher (Beta/Prod)
+- [ ] [Frontend] Build CRUD interfaces for all data models (using GraphQL API)
+- [ ] [Frontend] Implement navigation with hyperlinks between records
+- [ ] [Frontend] Add data validation and error handling
+- [ ] [i18n] Add i18n support from the start (Next.js i18n routing)
+- [ ] [i18n] Add language field to all user-facing content tables
+- [ ] [Testing] Add unit tests for all components (target: 70%+ coverage)
+- [ ] [Testing] Add integration tests for GraphQL queries/mutations
+- [ ] [Testing] Add e2e tests for main user flows (CRUD, navigation)
+- [ ] [i18n] Implement Next.js i18n routing and configuration
+- [ ] [i18n] Add language switcher to admin UI
+- [ ] [i18n] Ensure CRUD operations handle `language_code` for content entries
 
 #### **2.3 Iterative Feedback Loop**
-- [ ] Weekly review checkpoint: Sync API and admin UI progress
-- [ ] Review test coverage and contract test results
-- [ ] Adjust GraphQL schema and admin UI based on feedback
-- [ ] Ensure type safety and codegen are up-to-date
-- [ ] **Review Checklist**: 
+- [ ] [Workflow] Weekly review checkpoint: Sync API and admin UI progress
+- [ ] [Workflow] Review test coverage and contract test results
+- [ ] [Workflow] Adjust GraphQL schema and admin UI based on feedback
+- [ ] [Workflow] Ensure type safety and codegen are up-to-date
+- [ ] [Review] **Review Checklist**:
   - API schema consistency
   - Admin UI functionality
   - Data integrity (sample data)
@@ -193,18 +193,18 @@ MTBWiki/
   - Integration test pass/coverage
 
 #### **2.4 Data Migration & Versioning**
-- [ ] **Data Versioning**: Implement a versioning mechanism for enumeration seed data
-- [ ] **Migration Scripts**: Create and maintain migration scripts for schema changes and enum updates
-- [ ] **Versioning Policy**: Document data schema versioning policy (how to bump, how to migrate)
-- [ ] **Impact Analysis**: Define process for analyzing impact of schema changes on existing data
-- [ ] **Schema Versioning**: Add `schema_version` field to major content tables (System, Route, Trail, Guide)
-- [ ] **Schema Versioning**: Document schema versioning policy (how to bump versions, backward compatibility, etc.)
+- [ ] [Data Versioning] Implement a versioning mechanism for enumeration seed data
+- [ ] [DB Migrations] Create and maintain migration scripts for schema changes and enum updates
+- [ ] [Data Versioning] Document data schema versioning policy (how to bump, how to migrate)
+- [ ] [Data Versioning] Define process for analyzing impact of schema changes on existing data
+- [ ] [Data Versioning] Add `schema_version` field to major content tables (System, Route, Trail, Guide)
+- [ ] [Data Versioning] Document schema versioning policy (how to bump versions, backward compatibility, etc.)
 
 #### **2.5 Data Purity & External Sourcing**
-- [ ] **Remove Transient Data**: Ensure `Update` and other transient data models are fully removed from the codebase.
-- [ ] **Durable Data Focus**: Verify that all remaining data models (System, Route, Trail, Guide) store only long-lived, durable content.
-- [ ] **Trail Status Sourcing**: Implement linking mechanisms to external sources (e.g., Trailforks) for real-time trail status and transient information.
-- [ ] **Avoid Local Storage of Transient Data**: Confirm no local storage or caching of real-time weather/trail status data.
+- [ ] [Data Model] **Remove Transient Data**: Ensure `Update` and other transient data models are fully removed from the codebase.
+- [ ] [Data Model] **Durable Data Focus**: Verify that all remaining data models (System, Route, Trail, Guide) store only long-lived, durable content.
+- [ ] [External Data] **Trail Status Sourcing**: Implement linking mechanisms to external sources (e.g., Trailforks) for real-time trail status and transient information.
+- [ ] [Data Model] **Avoid Local Storage of Transient Data**: Confirm no local storage or caching of real-time weather/trail status data.
 
 **Deliverable**: Working API and admin interface, both consuming the same schema and data model, with feedback-driven improvements and passing tests
 
@@ -212,55 +212,55 @@ MTBWiki/
 **Goal**: Production-ready AWS infrastructure
 
 #### **3.1 Aurora Serverless v2 Setup**
-- [ ] Aurora Serverless v2 cluster (PostgreSQL)
-- [ ] Configure auto-pause (5 minutes)
-- [ ] Setup Data API for Lambda access
-- [ ] Database migrations in AWS
-- [ ] **Testing**: Add integration tests for DB migrations and seed data
-- [ ] Configure AWS Secrets Manager for database credentials
-- [ ] Define Secret resource for Aurora credentials
-- [ ] Grant Lambda read access to secrets
+- [ ] [DB Infra] Aurora Serverless v2 cluster (PostgreSQL)
+- [ ] [DB Config] Configure auto-pause (5 minutes)
+- [ ] [DB Access] Setup Data API for Lambda access
+- [ ] [DB Migrations] Database migrations in AWS
+- [ ] [Testing] Add integration tests for DB migrations and seed data
+- [ ] [Secrets] Configure AWS Secrets Manager for database credentials
+- [ ] [Secrets] Define Secret resource for Aurora credentials
+- [ ] [Secrets] Grant Lambda read access to secrets
 
 #### **3.2 Lambda Functions**
-- [ ] Convert GraphQL API to Lambda function
-- [ ] Setup API Gateway with Lambda integration (GraphQL endpoint)
-- [ ] Configure CORS for admin interface
-- [ ] Environment variable management
-- [ ] Auto-deploy documentation to S3 on build
-- [ ] **Testing**: Add integration tests for Lambda + Aurora Data API
-- [ ] Implement secure retrieval of secrets in Lambda (e.g., via environment variables from Secrets Manager)
-- [ ] **Monitoring**: Configure CloudWatch Logs for Lambda functions
-- [ ] **Monitoring**: Integrate Sentry DSN for error tracking in Lambda
+- [ ] [API Infra] Convert GraphQL API to Lambda function
+- [ ] [API Infra] Setup API Gateway with Lambda integration (GraphQL endpoint)
+- [ ] [API Config] Configure CORS for admin interface
+- [ ] [API Config] Environment variable management
+- [ ] [Docs] Auto-deploy documentation to S3 on build
+- [ ] [Testing] Add integration tests for Lambda + Aurora Data API
+- [ ] [Secrets] Implement secure retrieval of secrets in Lambda (e.g., via environment variables from Secrets Manager)
+- [ ] [Monitoring] Configure CloudWatch Logs for Lambda functions
+- [ ] [Monitoring] Integrate Sentry DSN for error tracking in Lambda
 
 #### **3.3 CDK Infrastructure (Infrastructure as Code)**
-- [ ] **Core Infrastructure Stack** (`/infrastructure/lib/core-stack.ts`)
+- [ ] [Infra] **Core Infrastructure Stack** (`/infrastructure/lib/core-stack.ts`)
   - Aurora Serverless v2 cluster with auto-pause
   - VPC with public subnets only (no NAT Gateway)
   - Security groups for Lambda and Aurora
-  - [ ] Configure AWS Secrets Manager for database credentials
-  - [ ] Define Secret resource for Aurora credentials
-  - [ ] Grant Lambda read access to secrets
-- [ ] **API Stack** (`/infrastructure/lib/api-stack.ts`)
+  - [ ] [Secrets] Configure AWS Secrets Manager for database credentials
+  - [ ] [Secrets] Define Secret resource for Aurora credentials
+  - [ ] [Secrets] Grant Lambda read access to secrets
+- [ ] [Infra] **API Stack** (`/infrastructure/lib/api-stack.ts`)
   - Lambda function for GraphQL endpoint
   - API Gateway with single /graphql route
   - IAM roles and policies
-  - [ ] Implement secure retrieval of secrets in Lambda (e.g., via environment variables from Secrets Manager)
-- [ ] **Frontend Stack** (`/infrastructure/lib/frontend-stack.ts`)
+  - [ ] [Secrets] Implement secure retrieval of secrets in Lambda (e.g., via environment variables from Secrets Manager)
+- [ ] [Infra] **Frontend Stack** (`/infrastructure/lib/frontend-stack.ts`)
   - S3 bucket for admin interface
   - CloudFront distribution with custom domain
   - Route 53 hosted zone and records
-- [ ] **Documentation Stack** (`/infrastructure/lib/docs-stack.ts`)
+- [ ] [Infra] **Documentation Stack** (`/infrastructure/lib/docs-stack.ts`)
   - S3 bucket for documentation hosting
   - CloudFront distribution for docs.mtbwiki.com
   - Automated invalidation on updates
-- [ ] **Environment Configuration** (`/infrastructure/config/`)
+- [ ] [Infra] **Environment Configuration** (`/infrastructure/config/`)
   - Beta environment configuration
   - Production environment configuration
   - Shared resource definitions
-- [ ] **Monitoring Stack**: Define CloudWatch dashboards and alarms (basic metrics)
-- [ ] **Database Stack**: Configure automated daily snapshots for Aurora (retention: 7 days)
-- [ ] **Frontend Stack**: Configure S3 bucket versioning and lifecycle policies for admin interface
-- [ ] **Documentation Stack**: Configure S3 bucket versioning and lifecycle policies for docs hosting
+- [ ] [Monitoring] **Monitoring Stack**: Define CloudWatch dashboards and alarms (basic metrics)
+- [ ] [Backup] **Database Stack**: Configure automated daily snapshots for Aurora (retention: 7 days)
+- [ ] [Backup] **Frontend Stack**: Configure S3 bucket versioning and lifecycle policies for admin interface
+- [ ] [Backup] **Documentation Stack**: Configure S3 bucket versioning and lifecycle policies for docs hosting
 
 **Deliverable**: Working API in AWS with Aurora backend and secure secret management
 
@@ -268,42 +268,42 @@ MTBWiki/
 **Goal**: Automated deployments
 
 #### **4.1 GitHub Actions Workflows (Infrastructure as Code)**
-- [ ] **Infrastructure Deployment Pipeline** (`/.github/workflows/infrastructure-deploy.yml`)
+- [ ] [CI/CD] **Infrastructure Deployment Pipeline** (`/.github/workflows/infrastructure-deploy.yml`)
   - CDK stack deployments
   - Environment provisioning and updates
   - Resource drift detection
-  - Ensure Secrets Manager setup is part of this deployment
-- [ ] **API Deployment Pipeline** (`/.github/workflows/api-deploy.yml`)
+  - [ ] [Secrets] Ensure Secrets Manager setup is part of this deployment
+- [ ] [CI/CD] **API Deployment Pipeline** (`/.github/workflows/api-deploy.yml`)
   - GraphQL Lambda deployment with CDK
   - Aurora Serverless v2 migrations (Prisma)
   - Environment-specific deployments (Beta/Prod)
-  - Inject secrets securely into Lambda environment variables
-- [ ] **Database Migration Pipeline** (`/.github/workflows/database-migrate.yml`)
+  - [ ] [Secrets] Inject secrets securely into Lambda environment variables
+- [ ] [CI/CD] **Database Migration Pipeline** (`/.github/workflows/database-migrate.yml`)
   - Prisma migration validation
   - Enumeration data seeding
   - Database schema validation
-  - Use Secrets Manager for DATABASE_URL for migrations/seeding
-- [ ] **Admin Web Pipeline** (`/.github/workflows/admin-web-deploy.yml`)
+  - [ ] [Secrets] Use Secrets Manager for DATABASE_URL for migrations/seeding
+- [ ] [CI/CD] **Admin Web Pipeline** (`/.github/workflows/admin-web-deploy.yml`)
   - Next.js build and optimization
   - S3 deployment with CloudFront invalidation
   - Environment-specific configurations
-  - Ensure client-side API endpoints are correctly configured via build-time env vars (no secrets exposed)
-- [ ] **Documentation Pipeline** (`/.github/workflows/docs-deploy.yml`)
+  - [ ] [Secrets] Ensure client-side API endpoints are correctly configured via build-time env vars (no secrets exposed)
+- [ ] [CI/CD] **Documentation Pipeline** (`/.github/workflows/docs-deploy.yml`)
   - TypeDoc generation from TypeScript code
   - GraphQL schema documentation generation
   - Prisma schema documentation generation
   - S3 deployment to docs.mtbwiki.com
-- [ ] **Quality Assurance Pipeline** (`/.github/workflows/qa.yml`)
+- [ ] [CI/CD] **Quality Assurance Pipeline** (`/.github/workflows/qa.yml`)
   - TypeScript compilation checks
   - ESLint and Prettier validation
   - GraphQL schema validation
   - Integration tests
-- [ ] **Testing**: All pipelines run tests and enforce coverage thresholds (fail if below 70% for unit, 80% for integration)
-- [ ] **Testing**: Contract tests for GraphQL API run on every PR
-- [ ] **Monitoring**: Ensure Sentry DSN is securely injected into environments
-- [ ] **Monitoring**: Configure CloudWatch alarms for deployment failures
-- [ ] **Database Migration Pipeline**: Ensure automatic application of schema and data migrations
-- [ ] **Database Migration Pipeline**: Implement rollback strategy for failed migrations
+- [ ] [Testing] All pipelines run tests and enforce coverage thresholds (fail if below 70% for unit, 80% for integration)
+- [ ] [Testing] Contract tests for GraphQL API run on every PR
+- [ ] [Monitoring] Ensure Sentry DSN is securely injected into environments
+- [ ] [Monitoring] Configure CloudWatch alarms for deployment failures
+- [ ] [DB Migrations] **Database Migration Pipeline**: Ensure automatic application of schema and data migrations
+- [ ] [DB Migrations] **Database Migration Pipeline**: Implement rollback strategy for failed migrations
 
 #### **4.2 Environment Strategy**
 ```
@@ -324,20 +324,20 @@ Production Environment:
 **Goal**: Full-featured content management
 
 #### **5.1 Core Admin Features**
-- [ ] Environment switcher (Beta/Prod)
-- [ ] GraphQL client integration (Apollo Client)
-- [ ] Systems management with hyperlinked navigation
-- [ ] Routes management with trail connections
-- [ ] Trails management with character tags
-- [ ] Discovery algorithm testing interface (GraphQL playground integration)
-- [ ] Auto-generated API documentation viewer
-- [ ] **Testing**: Add e2e tests for admin workflows (CRUD, navigation, i18n)
+- [ ] [Frontend] Environment switcher (Beta/Prod)
+- [ ] [Frontend] GraphQL client integration (Apollo Client)
+- [ ] [Frontend] Systems management with hyperlinked navigation
+- [ ] [Frontend] Routes management with trail connections
+- [ ] [Frontend] Trails management with character tags
+- [ ] [Frontend] Discovery algorithm testing interface (GraphQL playground integration)
+- [ ] [Frontend] Auto-generated API documentation viewer
+- [ ] [Testing] Add e2e tests for admin workflows (CRUD, navigation, i18n)
 
 #### **5.2 Advanced Features**
-- [ ] Bulk import/export
-- [ ] Regional difficulty calibration tools
-- [ ] Content quality scoring
-- [ ] User management (future)
+- [ ] [Frontend] Bulk import/export
+- [ ] [Frontend] Regional difficulty calibration tools
+- [ ] [Frontend] Content quality scoring
+- [ ] [Auth] User management (future)
 
 **Deliverable**: Complete admin interface
 
@@ -345,34 +345,34 @@ Production Environment:
 **Goal**: Launch-ready system
 
 #### **6.1 Monitoring & Observability**
-- [ ] **Monitoring**: Implement comprehensive CloudWatch dashboards for all services
-- [ ] **Monitoring**: Set up critical alarms (e.g., high error rates, low database connections)
-- [ ] **Monitoring**: Integrate Sentry for full error visibility across environments
-- [ ] **Logging**: Centralized log management strategy (CloudWatch Logs insights)
+- [ ] [Monitoring] Implement comprehensive CloudWatch dashboards for all services
+- [ ] [Monitoring] Set up critical alarms (e.g., high error rates, low database connections)
+- [ ] [Monitoring] Integrate Sentry for full error visibility across environments
+- [ ] [Logging] Centralized log management strategy (CloudWatch Logs insights)
 
 #### **6.2 Security & Performance**
-- [ ] API rate limiting
-- [ ] Input validation and sanitization
-- [ ] Database query optimization
-- [ ] CloudFront caching strategy
+- [ ] [Security] API rate limiting
+- [ ] [Security] Input validation and sanitization
+- [ ] [Performance] Database query optimization
+- [ ] [Performance] CloudFront caching strategy
 
 #### **6.3 Documentation & Context Tracking**
-- [ ] **API Documentation**: Auto-generated GraphQL API documentation
-- [ ] **Code Documentation**: Auto-generated TypeScript code documentation (TypeDoc)
-- [ ] **Database Schema Documentation**: Auto-generated database schema documentation (Prisma docs)
-- [ ] **Admin User Guide**: Comprehensive guide for using the admin interface
-- [ ] **Deployment Runbook**: Operational guide for deployments and troubleshooting
-- [ ] **Cost Optimization Guide**: Documentation on maintaining cost efficiency
-- [ ] **Context Tracking Automation**: Git hooks for progress updates
-- [ ] **Schema Versioning Documentation**: Generate and deploy documentation for schema versioning policies and migration procedures.
-- [ ] **Contributor Getting Started Guide**: Comprehensive guide for new developers and content editors
-- [ ] **Content Contribution Guide**: Document how to add/edit systems, routes, trails, and enumerations
-- [ ] **Backup & Recovery Documentation**: Document automated backup procedures (Aurora snapshots, S3 versioning) and manual recovery steps.
-- [ ] **Internationalization Documentation**: Document how to add new languages, manage translations, and create multi-language content.
-- [ ] **External Data Sourcing Documentation**: Document how to reference external sources like Trailforks for real-time data.
+- [ ] [Docs] **API Documentation**: Auto-generated GraphQL API documentation
+- [ ] [Docs] **Code Documentation**: Auto-generated TypeScript code documentation (TypeDoc)
+- [ ] [Docs] **Database Schema Documentation**: Auto-generated database schema documentation (Prisma docs)
+- [ ] [Docs] **Admin User Guide**: Comprehensive guide for using the admin interface
+- [ ] [Docs] **Deployment Runbook**: Operational guide for deployments and troubleshooting
+- [ ] [Docs] **Cost Optimization Guide**: Documentation on maintaining cost efficiency
+- [ ] [Docs] **Context Tracking Automation**: Git hooks for progress updates
+- [ ] [Docs] **Schema Versioning Documentation**: Generate and deploy documentation for schema versioning policies and migration procedures.
+- [ ] [Docs] **Contributor Getting Started Guide**: Comprehensive guide for new developers and content editors
+- [ ] [Docs] **Content Contribution Guide**: Document how to add/edit systems, routes, trails, and enumerations
+- [ ] [Docs] **Backup & Recovery Documentation**: Document automated backup procedures (Aurora snapshots, S3 versioning) and manual recovery steps.
+- [ ] [Docs] **Internationalization Documentation**: Document how to add new languages, manage translations, and create multi-language content.
+- [ ] [Docs] **External Data Sourcing Documentation**: Document how to reference external sources like Trailforks for real-time data.
 
 #### **6.4 Final Review Checkpoint**
-- [ ] **Overall Project Review**:
+- [ ] [Review] **Overall Project Review**:
   - All tests (unit, integration, e2e, contract) passing
   - Documentation completeness and accuracy (auto-generated docs)
   - Infrastructure as Code consistency across environments
@@ -412,23 +412,23 @@ Total:                    $22.50-32.50/month
 ## 🎯 **Success Criteria**
 
 ### **Technical**
-- [ ] Sub-200ms API response times
-- [ ] 99.9% uptime
-- [ ] Auto-scaling to handle traffic spikes
-- [ ] Secure admin interface
-- [ ] Mobile-responsive design
+- [ ] [Performance] Sub-200ms API response times
+- [ ] [Reliability] 99.9% uptime
+- [ ] [Scalability] Auto-scaling to handle traffic spikes
+- [ ] [Security] Secure admin interface
+- [ ] [Frontend] Mobile-responsive design
 
 ### **Functional**
-- [ ] Discovery algorithm finds relevant trails
-- [ ] Regional difficulty calibration works
-- [ ] Admin interface enables easy content management
-- [ ] Seasonal recommendations are accurate
+- [ ] [Core] Discovery algorithm finds relevant trails
+- [ ] [Core] Regional difficulty calibration works
+- [ ] [Admin] Admin interface enables easy content management
+- [ ] [Core] Seasonal recommendations are accurate
 
 ### **Business**
-- [ ] Hosting costs under $35/month
-- [ ] Easy to maintain and extend
-- [ ] Ready for content creators to use
-- [ ] Scalable architecture for growth
+- [ ] [Cost] Hosting costs under $35/month
+- [ ] [Maintainability] Easy to maintain and extend
+- [ ] [Usability] Ready for content creators to use
+- [ ] [Growth] Scalable architecture for growth
 
 ## 🔄 **Progress Tracking**
 
