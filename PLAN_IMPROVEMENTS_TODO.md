@@ -8,17 +8,16 @@
 
 ### 2. **Testing Strategy**
 - [x] Add explicit unit/integration/e2e test steps to each phase
-- [ ] Define minimum test coverage goals for each package
-- [ ] Add contract tests for GraphQL API
+- [x] Define minimum test coverage goals for each package
+- [x] Add contract tests for GraphQL API
 
 ### 3. **Dev Experience & Tooling**
-- [~] Add a single command for local dev setup (`npm run dev:all`)
-- [ ] Document how to run/test each service locally
-- [ ] Consider Nx or Turborepo for monorepo management (optional)
+- [x] Add a single command for local dev setup (`npm run dev:all`)
+- [x] Document how to run/test each service locally
 
 ### 4. **Secrets Management**
-- [ ] Add AWS Secrets Manager setup to early infra phase
-- [ ] Document local/dev/prod secrets handling
+- [x] Add AWS Secrets Manager setup to early infra phase
+- [x] Document local/dev/prod secrets handling
 
 ### 5. **Monitoring & Observability**
 - [ ] Add basic logging/monitoring hooks (CloudWatch, Sentry) from the start
@@ -67,8 +66,8 @@
 |---------------------|-------------------------------------------------------|--------|
 | Parallel Dev        | Parallelize admin & API after schema                  | [x]    |
 | Testing             | Add unit/integration/e2e/contract tests to all phases | [x]    |
-| Dev Experience      | One-command dev setup, local run docs                 | [~]    |
-| Secrets             | AWS Secrets Manager, doc local/prod handling          | [ ]    |
+| Dev Experience      | One-command dev setup, local run docs                 | [x]    |
+| Secrets             | AWS Secrets Manager, doc local/prod handling          | [x]    |
 | Monitoring          | Add logging/monitoring from start                     | [ ]    |
 | Data Versioning     | Version/track enum seed data, schema version fields   | [ ]    |
 | Onboarding          | Getting Started + content addition docs               | [ ]    |
