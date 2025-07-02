@@ -28,6 +28,10 @@
 - ✅ **NEW**: Implemented robust data migration and versioning strategy for schema and enumeration data
 - ✅ **NEW**: Added comprehensive user/contributor onboarding guides and content contribution documentation
 - ✅ **NEW**: Integrated explicit review checkpoints with detailed checklists after each major development phase
+- ✅ **NEW**: Implemented a simple backup and recovery model (Aurora snapshots, S3 versioning, documented manual steps)
+- ✅ **NEW**: Added comprehensive internationalization (i18n) support for multi-language content and admin interface
+- ✅ **NEW**: Implemented robust data schema versioning with dedicated fields, policies, and automated migrations
+- ✅ **NEW**: Data model now focuses on durable, long-lived content, with transient data (like trail status) sourced externally from Trailforks
 
 #### **Key Decisions Made**
 1. **Database**: Aurora Serverless v2 (PostgreSQL) - perfect for complex discovery queries
@@ -48,14 +52,19 @@
 16. **NEW - Data Migration & Versioning**: Process for versioning/migrating enum seed data and schema changes
 17. **NEW - User/Contributor Onboarding**: Getting Started guide and content contribution documentation
 18. **NEW - Review Checkpoints**: Explicit review checkpoints with detailed checklists after each major phase
+19. **NEW - Backup & Recovery**: Simple model with Aurora snapshots, S3 versioning, and documented manual recovery
+20. **NEW - Internationalization (l11n/i18n)**: Multi-language content and admin interface support
+21. **NEW - Data Schema Versioning**: Robust strategy for versioning database schema and data models
+22. **NEW - Data Purity**: Removed transient data from data model, focusing on durable content.
+23. **NEW - External Data Sourcing**: Trail status and other ephemeral data referenced directly from Trailforks.
 
 #### **Files Created/Updated**
 - `src/types/` - Complete TypeScript models
 - `src/docs/` - Architecture documentation
 - `src/examples/` - Sample data and regional examples
-- `EXECUTION_PLAN.md` - Comprehensive implementation plan (updated with GraphQL + docs, secrets management details, monitoring/observability details, and data migration/versioning)
+- `EXECUTION_PLAN.md` - Comprehensive implementation plan (updated with all previous details, plus durable data focus and external sourcing)
 - `PROGRESS_LOG.md` - This file (updated with new decisions)
-- `README.md` - Project overview (updated with GraphQL architecture and testing workflow, local dev setup, secrets management, monitoring/observability, and data migration/versioning)
+- `README.md` - Project overview (updated with GraphQL architecture and testing workflow, local dev setup, secrets management, monitoring/observability, data migration/versioning, contributor onboarding, backup/recovery, internationalization, data schema versioning, and durable data focus)
 - `docs-config.md` - **NEW**: Complete documentation and GraphQL integration strategy
 - `.gitignore` - **NEW**: Configured for proper documentation tracking
 - `src/types/normalized-models.ts` - **NEW**: Normalized data model with enumerations and foreign keys

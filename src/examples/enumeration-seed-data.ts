@@ -6,7 +6,7 @@
 import {
   Country, StateProvince, Region, DifficultyRating, RegionalCalibration,
   CharacterTag, SystemSize, TrailDirection, RouteType, RidingStyle,
-  SkillLevel, FitnessLevel, Month, Condition, ContentType, Severity, UpdateType
+  SkillLevel, FitnessLevel, Month, Condition, ContentType
 } from '../types/normalized-models';
 
 export const COUNTRIES: Country[] = [
@@ -442,71 +442,6 @@ export const CONTENT_TYPES: ContentType[] = [
   },
 ];
 
-export const SEVERITIES: Severity[] = [
-  {
-    id: 'info',
-    name: 'info',
-    display_name: 'Info',
-    numeric_value: 1,
-    color_code: '#3B82F6',
-    description: 'General information, nice to know'
-  },
-  {
-    id: 'important',
-    name: 'important',
-    display_name: 'Important',
-    numeric_value: 2,
-    color_code: '#F59E0B',
-    description: 'Important information, affects trip planning'
-  },
-  {
-    id: 'critical',
-    name: 'critical',
-    display_name: 'Critical',
-    numeric_value: 3,
-    color_code: '#EF4444',
-    description: 'Critical information, safety or access concerns'
-  },
-];
-
-export const UPDATE_TYPES: UpdateType[] = [
-  {
-    id: 'conditions',
-    name: 'conditions',
-    display_name: 'Trail Conditions',
-    category: 'trail_status',
-    description: 'Current trail conditions and surface quality'
-  },
-  {
-    id: 'closures',
-    name: 'closures',
-    display_name: 'Closures',
-    category: 'access',
-    description: 'Trail or area closures'
-  },
-  {
-    id: 'new-trails',
-    name: 'new_trails',
-    display_name: 'New Trails',
-    category: 'infrastructure',
-    description: 'New trail openings or construction'
-  },
-  {
-    id: 'events',
-    name: 'events',
-    display_name: 'Events',
-    category: 'community',
-    description: 'Races, group rides, or other events'
-  },
-  {
-    id: 'access-changes',
-    name: 'access_changes',
-    display_name: 'Access Changes',
-    category: 'access',
-    description: 'Changes to parking, permits, or access rules'
-  },
-];
-
 // Export all seed data as a single object for easy importing
 export const ENUMERATION_SEED_DATA = {
   countries: COUNTRIES,
@@ -524,6 +459,4 @@ export const ENUMERATION_SEED_DATA = {
   months: MONTHS,
   conditions: CONDITIONS,
   contentTypes: CONTENT_TYPES,
-  severities: SEVERITIES,
-  updateTypes: UPDATE_TYPES,
 }; 

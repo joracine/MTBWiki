@@ -124,23 +124,6 @@ export interface ContentType {
   typical_length: string;
 }
 
-export interface Severity {
-  id: string;
-  name: string; // "info", "important", "critical"
-  display_name: string;
-  numeric_value: number; // 1-3 for ordering
-  color_code: string; // For UI
-  description: string;
-}
-
-export interface UpdateType {
-  id: string;
-  name: string; // "conditions", "closures", "new_trails", "events"
-  display_name: string;
-  category: string;
-  description: string;
-}
-
 // MAIN ENTITY MODELS - Now using foreign keys to enumerations
 
 export interface DifficultyProfile {
@@ -477,6 +460,4 @@ export interface EnumerationSeedData {
   months: Month[];
   conditions: Condition[];
   contentTypes: ContentType[];
-  severities: Severity[];
-  updateTypes: UpdateType[];
 } 

@@ -37,27 +37,27 @@
 - [x] Checklist for what to review at each checkpoint (tests, docs, infra, data integrity)
 
 ### 9. **Backup & Recovery (Simple Model)**
-- [ ] Add automated daily snapshot for Aurora (retention: 7 days)
-- [ ] Add S3 versioning and lifecycle policy for admin interface and docs
-- [ ] Document manual recovery steps (restore snapshot, re-deploy infra)
+- [x] Add automated daily snapshot for Aurora (retention: 7 days)
+- [x] Add S3 versioning and lifecycle policy for admin interface and docs
+- [x] Document manual recovery steps (restore snapshot, re-deploy infra)
 
 ### 10. **Internationalization (l11n/i18n)**
-- [ ] Add i18n support to admin interface from the start (Next.js i18n routing)
-- [ ] Add language field to all user-facing content tables (e.g., System, Route, Guide)
-- [ ] Document how to add new languages and translate content
+- [x] Add i18n support to admin interface from the start (Next.js i18n routing)
+- [x] Add language field to all user-facing content tables (e.g., System, Route, Guide)
+- [x] Document how to add new languages and translate content
 
 ### 11. **Data Schema Versioning**
-- [ ] Add schema version field to all major tables (e.g., System, Route, Trail)
-- [ ] Document schema versioning policy (how to bump, how to migrate)
-- [ ] Add migration scripts for schema changes
+- [x] Add schema version field to all major tables (e.g., System, Route, Trail)
+- [x] Document schema versioning policy (how to bump, how to migrate)
+- [x] Add migration scripts for schema changes
 
 ### 12. **Remove Transient Data**
-- [ ] Remove transient/ephemeral data (e.g., weather updates, real-time trail status) from the data model
-- [ ] Ensure data model focuses on durable, long-lived content
+- [x] Remove transient/ephemeral data (e.g., weather updates, real-time trail status) from the data model
+- [x] Ensure data model focuses on durable, long-lived content
 
 ### 13. **Trail Status Sourcing**
-- [ ] Trail status should reference Trailforks as the authoritative source
-- [ ] Do not store trail status as durable data; link to Trailforks for current status
+- [x] Trail status should reference Trailforks as the authoritative source
+- [x] Do not store trail status as durable data; link to Trailforks for current status
 
 ---
 
@@ -72,11 +72,11 @@
 | Data Versioning     | Version/track enum seed data, schema version fields   | [x]    |
 | Onboarding          | Getting Started + content addition docs               | [x]    |
 | Review Checkpoints  | Add review after each phase, with checklist           | [x]    |
-| Backup/Recovery     | Aurora snapshots, S3 versioning, manual restore docs  | [ ]    |
-| i18n/l11n           | i18n in admin UI, language fields, translation docs   | [ ]    |
-| Schema Versioning   | Schema version fields, migration scripts, docs        | [ ]    |
-| Remove Transient Data | Remove weather/trail status from data model           | [ ]    |
-| Trail Status Sourcing | Reference Trailforks for trail status, not local data | [ ]    |
+| Backup/Recovery     | Aurora snapshots, S3 versioning, manual restore docs  | [x]    |
+| i18n/l11n           | i18n in admin UI, language fields, translation docs   | [x]    |
+| Schema Versioning   | Schema version fields, migration scripts, docs        | [x]    |
+| Remove Transient Data | Remove weather/trail status from data model           | [x]    |
+| Trail Status Sourcing | Reference Trailforks for trail status, not local data | [x]    |
 
 ---
 

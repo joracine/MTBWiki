@@ -268,29 +268,4 @@ export interface Guide {
   created_at: Date;
   updated_at: Date;
   last_verified: Date;
-}
-
-/**
- * Simple seasonal updates
- */
-export interface Update {
-  id: string;
-  system_id: string;
-  
-  type: 'conditions' | 'closures' | 'new_trails' | 'events' | 'access_changes';
-  title: string;
-  summary: string;
-  details?: string;
-  
-  // Relevance
-  severity: 'info' | 'important' | 'critical';
-  affects_routes?: string[]; // Route IDs
-  valid_until?: Date;
-  
-  // Verification
-  reported_by: string;
-  verified: boolean;
-  verification_count: number;
-  
-  created_at: Date;
 } 

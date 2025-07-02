@@ -162,6 +162,8 @@ MTBWiki/
 - [ ] **Testing**: Add contract tests for GraphQL schema (using GraphQL Codegen or similar)
 - [ ] **Testing**: Add integration tests for API endpoints (target: 80%+ coverage)
 - [ ] **Testing**: Add e2e tests for discovery queries
+- [ ] **Internationalization**: Add `language_code` field (e.g., `en-US`, `fr-CA`) to all user-facing content tables (System, Route, Trail, Guide)
+- [ ] **Internationalization**: Ensure GraphQL queries can filter content by `language_code`
 
 #### **2.2 Admin Interface Development**
 - [ ] Scaffold Next.js admin interface with Apollo Client
@@ -174,6 +176,9 @@ MTBWiki/
 - [ ] **Testing**: Add unit tests for all components (target: 70%+ coverage)
 - [ ] **Testing**: Add integration tests for GraphQL queries/mutations
 - [ ] **Testing**: Add e2e tests for main user flows (CRUD, navigation)
+- [ ] **Internationalization**: Implement Next.js i18n routing and configuration
+- [ ] **Internationalization**: Add language switcher to admin UI
+- [ ] **Internationalization**: Ensure CRUD operations handle `language_code` for content entries
 
 #### **2.3 Iterative Feedback Loop**
 - [ ] Weekly review checkpoint: Sync API and admin UI progress
@@ -192,6 +197,14 @@ MTBWiki/
 - [ ] **Migration Scripts**: Create and maintain migration scripts for schema changes and enum updates
 - [ ] **Versioning Policy**: Document data schema versioning policy (how to bump, how to migrate)
 - [ ] **Impact Analysis**: Define process for analyzing impact of schema changes on existing data
+- [ ] **Schema Versioning**: Add `schema_version` field to major content tables (System, Route, Trail, Guide)
+- [ ] **Schema Versioning**: Document schema versioning policy (how to bump versions, backward compatibility, etc.)
+
+#### **2.5 Data Purity & External Sourcing**
+- [ ] **Remove Transient Data**: Ensure `Update` and other transient data models are fully removed from the codebase.
+- [ ] **Durable Data Focus**: Verify that all remaining data models (System, Route, Trail, Guide) store only long-lived, durable content.
+- [ ] **Trail Status Sourcing**: Implement linking mechanisms to external sources (e.g., Trailforks) for real-time trail status and transient information.
+- [ ] **Avoid Local Storage of Transient Data**: Confirm no local storage or caching of real-time weather/trail status data.
 
 **Deliverable**: Working API and admin interface, both consuming the same schema and data model, with feedback-driven improvements and passing tests
 
@@ -246,6 +259,8 @@ MTBWiki/
   - Shared resource definitions
 - [ ] **Monitoring Stack**: Define CloudWatch dashboards and alarms (basic metrics)
 - [ ] **Database Stack**: Configure automated daily snapshots for Aurora (retention: 7 days)
+- [ ] **Frontend Stack**: Configure S3 bucket versioning and lifecycle policies for admin interface
+- [ ] **Documentation Stack**: Configure S3 bucket versioning and lifecycle policies for docs hosting
 
 **Deliverable**: Working API in AWS with Aurora backend and secure secret management
 
@@ -349,9 +364,12 @@ Production Environment:
 - [ ] **Deployment Runbook**: Operational guide for deployments and troubleshooting
 - [ ] **Cost Optimization Guide**: Documentation on maintaining cost efficiency
 - [ ] **Context Tracking Automation**: Git hooks for progress updates
-- [ ] **Schema Versioning Docs**: Generate and deploy documentation for schema versioning policies
+- [ ] **Schema Versioning Documentation**: Generate and deploy documentation for schema versioning policies and migration procedures.
 - [ ] **Contributor Getting Started Guide**: Comprehensive guide for new developers and content editors
 - [ ] **Content Contribution Guide**: Document how to add/edit systems, routes, trails, and enumerations
+- [ ] **Backup & Recovery Documentation**: Document automated backup procedures (Aurora snapshots, S3 versioning) and manual recovery steps.
+- [ ] **Internationalization Documentation**: Document how to add new languages, manage translations, and create multi-language content.
+- [ ] **External Data Sourcing Documentation**: Document how to reference external sources like Trailforks for real-time data.
 
 #### **6.4 Final Review Checkpoint**
 - [ ] **Overall Project Review**:

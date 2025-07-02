@@ -22,6 +22,10 @@ Different regions have vastly different difficulty standards. A "blue" trail in 
 - **Secrets Management**: AWS Secrets Manager for secure credential storage
 - **Monitoring & Observability**: CloudWatch for logging and metrics, Sentry for real-time error tracking and alerts
 - **Data Migration & Versioning**: Robust strategy for managing database schema and enumeration data changes over time, ensuring data integrity and smooth updates.
+- **Backup & Recovery**: Automated daily database snapshots (Aurora) and S3 versioning for static assets, with documented manual recovery procedures.
+- **Internationalization (i18n)**: Support for multiple languages, enabling content creation and consumption in different locales.
+- **Data Schema Versioning**: A clear policy and implementation for versioning the database schema and data models, ensuring smooth evolution and backward compatibility.
+- **Durable Data Focus**: The data model prioritizes long-lived, curated content, with transient information (like real-time trail status or weather) sourced externally (e.g., via direct links to Trailforks).
 
 ## 🚀 **Getting Started**
 
@@ -145,6 +149,30 @@ MTBWiki/
 - **Automated Deployments**: Database migrations and data seeding are integrated into the CI/CD pipeline.
 - **Rollback Capability**: Strategy for rolling back failed migrations to ensure data consistency.
 - **Documentation**: Clear documentation on how schema and data versions are managed.
+
+### **Backup & Recovery Strategy**
+- **Automated Database Snapshots**: Daily Aurora snapshots with 7-day retention for point-in-time recovery.
+- **S3 Versioning**: Enabled for Admin Interface and Documentation buckets to protect against accidental deletions and enable easy rollbacks.
+- **Documented Recovery**: Clear, step-by-step instructions for manual data restoration and infrastructure re-deployment in case of disaster.
+- **Internationalization (i18n)**: Support for multiple languages, enabling content creation and consumption in different locales.
+
+### **Internationalization (i18n) Strategy**
+- **Multi-Language Content**: Core content entities (Systems, Routes, Guides, etc.) will include a `language_code` to support multiple translations.
+- **Admin Interface Localization**: The admin web interface will support language switching for content entry.
+- **Next.js i18n Routing**: Leverage Next.js built-in internationalized routing for clean URLs and language detection.
+- **Translation Workflow**: Document the process for adding new languages and managing content translations.
+
+### **Data Schema Versioning Strategy**
+- **Schema Version Field**: Major content tables will include a `schema_version` field to track their evolution.
+- **Versioning Policy**: Documented guidelines for bumping schema versions and maintaining backward/forward compatibility.
+- **Automated Migrations**: Migration scripts integrated into the CI/CD pipeline to handle schema updates.
+- **Impact Analysis**: Procedures for assessing the impact of schema changes on data and application logic.
+
+### **Durable Data & External Sourcing Strategy**
+- **Core Content Durability**: All main entities (Systems, Routes, Trails, Guides) store permanent, curated information.
+- **No Transient Data Storage**: Real-time conditions (e.g., weather, temporary trail closures) are NOT stored in our database.
+- **External Referencing**: Trail status and similar ephemeral data will be accessed directly from authoritative external sources like Trailforks via deep links.
+- **Clear User Expectation**: Users will understand that our wiki provides curated knowledge, while Trailforks provides dynamic, real-time status.
 
 ## 📊 **Cost Breakdown**
 
