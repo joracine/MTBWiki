@@ -52,6 +52,14 @@
 - [ ] Document schema versioning policy (how to bump, how to migrate)
 - [ ] Add migration scripts for schema changes
 
+### 12. **Remove Transient Data**
+- [ ] Remove transient/ephemeral data (e.g., weather updates, real-time trail status) from the data model
+- [ ] Ensure data model focuses on durable, long-lived content
+
+### 13. **Trail Status Sourcing**
+- [ ] Trail status should reference Trailforks as the authoritative source
+- [ ] Do not store trail status as durable data; link to Trailforks for current status
+
 ---
 
 ## 📋 **Summary Table**
@@ -68,6 +76,8 @@
 | Backup/Recovery     | Aurora snapshots, S3 versioning, manual restore docs  | [ ]    |
 | i18n/l11n           | i18n in admin UI, language fields, translation docs   | [ ]    |
 | Schema Versioning   | Schema version fields, migration scripts, docs        | [ ]    |
+| Remove Transient Data | Remove weather/trail status from data model           | [ ]    |
+| Trail Status Sourcing | Reference Trailforks for trail status, not local data | [ ]    |
 
 ---
 
