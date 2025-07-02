@@ -134,41 +134,40 @@ MTBWiki/
 #### **1.2 Core Setup Tasks**
 - [ ] Create monorepo structure with workspaces
 - [ ] Setup Docker Compose (PostgreSQL + Redis)
-- [ ] Initialize Prisma with PostgreSQL schema
+- [ ] Initialize Prisma with normalized schema and enumerations
 - [ ] Create shared TypeScript types package
-- [ ] Setup GraphQL API with Apollo Server (not Express REST)
-- [ ] Configure auto-documentation generation (TypeDoc + GraphQL schema docs)
-- [ ] Basic Next.js admin interface with GraphQL client
-- [ ] Context tracking integration (docs generation in CI/CD)
+- [ ] **Define initial GraphQL schema and data model**
 
 **Deliverable**: `npm run dev` starts full local stack with GraphQL playground
 
-### **Phase 2: Core Features & Data Model** ⏱️ *Week 2-3*
-**Goal**: Working discovery algorithm with seed data
+### **Phase 2: Parallel API & Admin Interface Development** ⏱️ *Weeks 2-3*
+**Goal**: Develop GraphQL API and Admin Interface in parallel, with iterative feedback
 
-#### **2.1 Database Schema Implementation**
+#### **2.1 GraphQL API Development**
 - [ ] Implement normalized Prisma schema with enumeration tables
 - [ ] Create database migrations for all tables and foreign keys
 - [ ] Seed enumeration tables (countries, regions, difficulty ratings, character tags, etc.)
 - [ ] Add sample data for 3-5 trail systems using normalized model
 - [ ] Implement regional difficulty calibration with proper foreign keys
+- [ ] Implement GraphQL API (Apollo Server) for all core entities
+- [ ] Expose CRUD and discovery queries/mutations
+- [ ] Auto-generate GraphQL schema documentation
 
-#### **2.2 Discovery Algorithm**
-- [ ] Core discovery endpoint with SQL-based scoring
-- [ ] Regional difficulty translation logic
-- [ ] Seasonal filtering
-- [ ] Style matching (technical, flow, XC)
+#### **2.2 Admin Interface Development**
+- [ ] Scaffold Next.js admin interface with Apollo Client
+- [ ] Implement environment switcher (Beta/Prod)
+- [ ] Build CRUD interfaces for all data models (using GraphQL API)
+- [ ] Implement navigation with hyperlinks between records
+- [ ] Add data validation and error handling
+- [ ] Add i18n support from the start (Next.js i18n routing)
+- [ ] Add language field to all user-facing content tables
 
-#### **2.3 GraphQL API Implementation**
-- [ ] Systems CRUD mutations and queries
-- [ ] Routes CRUD mutations and queries  
-- [ ] Trails CRUD mutations and queries
-- [ ] Discovery search query with complex filtering
-- [ ] Regional calibration queries
-- [ ] Auto-generated GraphQL schema documentation
-- [ ] TypeScript types generated from GraphQL schema
+#### **2.3 Iterative Feedback Loop**
+- [ ] Weekly review checkpoint: Sync API and admin UI progress
+- [ ] Adjust GraphQL schema and admin UI based on feedback
+- [ ] Ensure type safety and codegen are up-to-date
 
-**Deliverable**: Working GraphQL discovery API with seed data and auto-docs
+**Deliverable**: Working API and admin interface, both consuming the same schema and data model, with feedback-driven improvements
 
 ### **Phase 3: AWS Infrastructure** ⏱️ *Week 4*
 **Goal**: Production-ready AWS infrastructure

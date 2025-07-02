@@ -27,6 +27,11 @@ Different regions have vastly different difficulty standards. A "blue" trail in 
 2. Check `PROGRESS_LOG.md` for current status and session history
 3. Review `src/docs/` for architecture decisions and context
 
+### **Development Workflow**
+- **Admin interface and GraphQL API are developed in parallel** after the initial schema is defined.
+- **Iterative feedback**: Weekly review checkpoints ensure the API and admin UI evolve together, with schema/codegen updates as needed.
+- **Type safety and codegen**: Always up-to-date between API and UI.
+
 ### **For New Contributors**
 1. Understand the core concept in `src/docs/concept.md`
 2. Review the data models in `src/types/`
