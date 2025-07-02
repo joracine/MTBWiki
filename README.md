@@ -30,7 +30,7 @@ Different regions have vastly different difficulty standards. A "blue" trail in 
 ## 🚀 **Getting Started**
 
 ### **For Continuing Development**
-1. Read `EXECUTION_PLAN.md` for the complete implementation roadmap
+1. Read `EXECUTION_PLAN.md` for the complete implementation roadmap (canonical plan)
 2. Check `PROGRESS_LOG.md` for current status and session history
 3. Review `src/docs/` for architecture decisions and context
 
