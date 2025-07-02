@@ -21,6 +21,7 @@ Different regions have vastly different difficulty standards. A "blue" trail in 
 - **Local Dev**: Docker Compose + Prisma + GraphQL
 - **Secrets Management**: AWS Secrets Manager for secure credential storage
 - **Monitoring & Observability**: CloudWatch for logging and metrics, Sentry for real-time error tracking and alerts
+- **Data Migration & Versioning**: Robust strategy for managing database schema and enumeration data changes over time, ensuring data integrity and smooth updates.
 
 ## 🚀 **Getting Started**
 
@@ -32,12 +33,15 @@ Different regions have vastly different difficulty standards. A "blue" trail in 
 ### **Development Workflow**
 - **Admin interface and GraphQL API are developed in parallel** after the initial schema is defined.
 - **Iterative feedback**: Weekly review checkpoints ensure the API and admin UI evolve together, with schema/codegen updates as needed.
+- **Review Checkpoints**: Explicit review checkpoints with detailed checklists are integrated after each major development phase to ensure quality, consistency, and alignment with goals.
 - **Type safety and codegen**: Always up-to-date between API and UI.
 
 ### **For New Contributors**
 1. Understand the core concept in `src/docs/concept.md`
 2. Review the data models in `src/types/`
 3. Check out example data in `src/examples/`
+4. **Getting Started Guide**: Refer to the `docs/contributor-guide.md` for detailed setup and contribution instructions.
+5. **Content Contribution Guide**: Learn how to add and manage content (systems, routes, trails, enumerations) via the admin interface.
 
 ## 📋 **Implementation Status**
 
@@ -134,6 +138,13 @@ MTBWiki/
 - **Real-time Metrics**: CloudWatch metrics and dashboards for API performance, Lambda invocations, and database health.
 - **Error Tracking**: Sentry integration for real-time error reporting and visibility across all environments (dev, beta, prod).
 - **Automated Alerts**: CloudWatch alarms for critical issues (e.g., high error rates, low database connections, deployment failures).
+
+### **Data Migration & Versioning Strategy**
+- **Schema Migrations**: Use Prisma Migrate for version-controlled database schema changes.
+- **Enumeration Data Versioning**: A defined process for updating and tracking changes to enumeration seed data.
+- **Automated Deployments**: Database migrations and data seeding are integrated into the CI/CD pipeline.
+- **Rollback Capability**: Strategy for rolling back failed migrations to ensure data consistency.
+- **Documentation**: Clear documentation on how schema and data versions are managed.
 
 ## 📊 **Cost Breakdown**
 

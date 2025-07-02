@@ -180,6 +180,18 @@ MTBWiki/
 - [ ] Review test coverage and contract test results
 - [ ] Adjust GraphQL schema and admin UI based on feedback
 - [ ] Ensure type safety and codegen are up-to-date
+- [ ] **Review Checklist**: 
+  - API schema consistency
+  - Admin UI functionality
+  - Data integrity (sample data)
+  - Unit test pass/coverage
+  - Integration test pass/coverage
+
+#### **2.4 Data Migration & Versioning**
+- [ ] **Data Versioning**: Implement a versioning mechanism for enumeration seed data
+- [ ] **Migration Scripts**: Create and maintain migration scripts for schema changes and enum updates
+- [ ] **Versioning Policy**: Document data schema versioning policy (how to bump, how to migrate)
+- [ ] **Impact Analysis**: Define process for analyzing impact of schema changes on existing data
 
 **Deliverable**: Working API and admin interface, both consuming the same schema and data model, with feedback-driven improvements and passing tests
 
@@ -233,6 +245,7 @@ MTBWiki/
   - Production environment configuration
   - Shared resource definitions
 - [ ] **Monitoring Stack**: Define CloudWatch dashboards and alarms (basic metrics)
+- [ ] **Database Stack**: Configure automated daily snapshots for Aurora (retention: 7 days)
 
 **Deliverable**: Working API in AWS with Aurora backend and secure secret management
 
@@ -274,6 +287,8 @@ MTBWiki/
 - [ ] **Testing**: Contract tests for GraphQL API run on every PR
 - [ ] **Monitoring**: Ensure Sentry DSN is securely injected into environments
 - [ ] **Monitoring**: Configure CloudWatch alarms for deployment failures
+- [ ] **Database Migration Pipeline**: Ensure automatic application of schema and data migrations
+- [ ] **Database Migration Pipeline**: Implement rollback strategy for failed migrations
 
 #### **4.2 Environment Strategy**
 ```
@@ -327,13 +342,27 @@ Production Environment:
 - [ ] CloudFront caching strategy
 
 #### **6.3 Documentation & Context Tracking**
-- [ ] Auto-generated GraphQL API documentation
-- [ ] Auto-generated TypeScript code documentation (TypeDoc)
-- [ ] Auto-generated database schema documentation (Prisma docs)
-- [ ] Admin user guide
-- [ ] Deployment runbook
-- [ ] Cost optimization guide
-- [ ] Context tracking automation (git hooks for progress updates)
+- [ ] **API Documentation**: Auto-generated GraphQL API documentation
+- [ ] **Code Documentation**: Auto-generated TypeScript code documentation (TypeDoc)
+- [ ] **Database Schema Documentation**: Auto-generated database schema documentation (Prisma docs)
+- [ ] **Admin User Guide**: Comprehensive guide for using the admin interface
+- [ ] **Deployment Runbook**: Operational guide for deployments and troubleshooting
+- [ ] **Cost Optimization Guide**: Documentation on maintaining cost efficiency
+- [ ] **Context Tracking Automation**: Git hooks for progress updates
+- [ ] **Schema Versioning Docs**: Generate and deploy documentation for schema versioning policies
+- [ ] **Contributor Getting Started Guide**: Comprehensive guide for new developers and content editors
+- [ ] **Content Contribution Guide**: Document how to add/edit systems, routes, trails, and enumerations
+
+#### **6.4 Final Review Checkpoint**
+- [ ] **Overall Project Review**:
+  - All tests (unit, integration, e2e, contract) passing
+  - Documentation completeness and accuracy (auto-generated docs)
+  - Infrastructure as Code consistency across environments
+  - Security audit results reviewed
+  - Performance benchmarks met
+  - Cost projections re-validated
+  - User/contributor guides reviewed for clarity
+  - Data integrity checks on production data (read-only for Gamma)
 
 **Deliverable**: Production-ready MTB Wiki
 

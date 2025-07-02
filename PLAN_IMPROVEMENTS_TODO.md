@@ -24,17 +24,17 @@
 - [x] Ensure error tracking is available in dev and beta
 
 ### 6. **Data Migration & Versioning**
-- [ ] Add process for versioning and updating enumeration seed data
-- [ ] Add migration scripts for enum changes (e.g., new tags, new regions)
-- [ ] Document schema versioning and migration process
+- [x] Add process for versioning and updating enumeration seed data
+- [x] Add migration scripts for enum changes (e.g., new tags, new regions)
+- [x] Document schema versioning and migration process
 
 ### 7. **User/Contributor Onboarding**
-- [ ] Add a "Getting Started" section for new contributors (devs and content editors)
-- [ ] Document how to add new enumerations, seed data, or content types
+- [x] Add a "Getting Started" section for new contributors (devs and content editors)
+- [x] Document how to add new enumerations, seed data, or content types
 
 ### 8. **Review Checkpoints**
-- [ ] Add explicit review checkpoint after each major phase (local dev, beta deploy, prod deploy)
-- [ ] Checklist for what to review at each checkpoint (tests, docs, infra, data integrity)
+- [x] Add explicit review checkpoint after each major phase (local dev, beta deploy, prod deploy)
+- [x] Checklist for what to review at each checkpoint (tests, docs, infra, data integrity)
 
 ### 9. **Backup & Recovery (Simple Model)**
 - [ ] Add automated daily snapshot for Aurora (retention: 7 days)
@@ -69,9 +69,9 @@
 | Dev Experience      | One-command dev setup, local run docs                 | [x]    |
 | Secrets             | AWS Secrets Manager, doc local/prod handling          | [x]    |
 | Monitoring          | Add logging/monitoring from start                     | [x]    |
-| Data Versioning     | Version/track enum seed data, schema version fields   | [ ]    |
-| Onboarding          | Getting Started + content addition docs               | [ ]    |
-| Review Checkpoints  | Add review after each phase, with checklist           | [ ]    |
+| Data Versioning     | Version/track enum seed data, schema version fields   | [x]    |
+| Onboarding          | Getting Started + content addition docs               | [x]    |
+| Review Checkpoints  | Add review after each phase, with checklist           | [x]    |
 | Backup/Recovery     | Aurora snapshots, S3 versioning, manual restore docs  | [ ]    |
 | i18n/l11n           | i18n in admin UI, language fields, translation docs   | [ ]    |
 | Schema Versioning   | Schema version fields, migration scripts, docs        | [ ]    |
